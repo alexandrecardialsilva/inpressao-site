@@ -2784,15 +2784,16 @@ a { color: inherit; text-decoration: none; }
   background:
     linear-gradient(
       to top,
-      rgba(17,19,24,0.97) 0%,
-      rgba(17,19,24,0.75) 35%,
-      rgba(17,19,24,0.30) 65%,
+      rgba(17,19,24,0.60) 0%,
+      rgba(17,19,24,0.35) 25%,
+      rgba(17,19,24,0.18) 55%,
       rgba(17,19,24,0.10) 100%
     ),
     linear-gradient(
       to right,
-      rgba(17,19,24,0.55) 0%,
-      rgba(17,19,24,0) 55%
+      rgba(17,19,24,0.45) 0%,
+      rgba(17,19,24,0.12) 40%,
+      rgba(17,19,24,0) 65%
     );
 }
 
@@ -2891,4 +2892,23 @@ a { color: inherit; text-decoration: none; }
 
 
   .hero-cinema-scroll { display: none; }
+}
+/* Hero exclusivo Alexandre */
+
+.hero-alexandre{
+    background-position: center 18%;
+}
+
+.hero-alexandre .hero-cinema-bg{
+    transform: scale(1.01);
+}
+/* HERO ALEXANDRE */
+
+.alexandre-cardial .hero-cinema-bg{
+    background-position: center 20%;
+}
+/* HERO ALEXANDRE CARDIAL */
+
+.hero-alexandre .hero-cinema-bg{
+    background-position: 100% 2%;
 }
