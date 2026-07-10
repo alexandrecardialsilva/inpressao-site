@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Por que uma arte bonita pode imprimir completamente errada? — inPressão Insights</title>
+<meta name="description" content="O que você vê na tela raramente é exatamente o que será impresso. Entenda como perfis de cor, resolução e preparação de arquivos influenciam o resultado final.">
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>
+.article-hero {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-image: url('/assets/img/HERO_INSIGHTS.png');
+  background-size: cover;
+  background-position: center;
+}
+.article-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17,19,24,0.97) 0%, rgba(17,19,24,0.6) 50%, rgba(17,19,24,0.2) 100%);
+}
+.article-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 clamp(3rem,6vh,5rem);
+  width: 100%;
+}
+.article-meta {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #B8862A;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.article-meta::before { content:''; width:28px; height:1px; background:#B8862A; }
+.article-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.0;
+  text-transform: uppercase;
+  color: var(--ink);
+  max-width: 22ch;
+  margin: 0 0 1.5rem;
+}
+.article-lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(245,242,237,0.7);
+  max-width: 60ch;
+}
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--gutter);
+}
+.article-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  margin: 0 0 1.75rem;
+}
+.article-body h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 3rem 0 1.25rem;
+  letter-spacing: 0.02em;
+}
+.article-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  border-left: 2px solid #B8862A;
+  padding-left: 1.5rem;
+}
+.article-body ul li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  padding: 0.2rem 0;
+}
+.article-body ul li::before {
+  content: '- ';
+  color: #B8862A;
+}
+.article-quote {
+  border-left: 3px solid #B8862A;
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
+  background: var(--paper-mid);
+}
+.article-quote p {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--ink) !important;
+  margin: 0 !important;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.article-cta {
+  background: var(--paper-mid);
+  border: 1px solid rgba(184,134,42,0.3);
+  padding: 2.5rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+.article-cta p {
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem !important;
+}
+.article-nav {
+  border-top: 1px solid var(--line-soft);
+  padding: 2rem var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand"><span class="mark" aria-hidden="true"></span>inPressão</a>
+    <nav class="main-nav" data-open="false" aria-label="Navegação principal">
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/grafica/">Gráfica</a></li>
+        <li><a href="/embalagens/">Desenvolvimento de Embalagens</a></li>
+        <li><a href="/projetos/">Projetos</a></li>
+        <li><a href="/alexandre-cardial/">Alexandre Cardial</a></li>
+        <li><a href="/insights/" aria-current="true">Insights</a></li>
+        <li><a href="/contato/">Contato</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <a href="/insights/arte-bonita-imprime-errada/">PT</a>
+        <span aria-hidden="true">|</span>
+        <a href="/en/insights/artwork-prints-wrong/">EN</a>
+      </div>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="article-hero">
+    <div class="article-hero-content wrap">
+      <p class="article-meta">Insights · Pré-impressão · 6 min de leitura</p>
+      <h1 class="article-title">Por que uma arte bonita pode imprimir completamente errada?</h1>
+      <p class="article-lead">O que você vê na tela raramente é exatamente o que será impresso. Entenda como perfis de cor, resolução e preparação de arquivos influenciam o resultado final.</p>
+    </div>
+  </section>
+
+  <article class="article-body">
+
+    <div class="article-quote">
+      <p>"No computador estava perfeito. Na impressão ficou totalmente diferente."</p>
+    </div>
+
+    <p>Se você trabalha com publicidade, embalagens, convites, rótulos ou qualquer material impresso, provavelmente já ouviu essa frase. E a verdade é que, na maioria das vezes, o problema não está na impressora.</p>
+
+    <p>Está na preparação do arquivo.</p>
+
+    <p>Essa é justamente a função da pré-impressão: identificar pequenos detalhes que passam despercebidos na tela, mas que podem comprometer todo o resultado depois que a máquina começa a rodar.</p>
+
+    <h2>A tela mente. O papel não.</h2>
+
+    <p>Parece estranho dizer isso, mas o monitor sempre "engana" um pouco.</p>
+
+    <p>Cada tela possui brilho, contraste, temperatura de cor e calibração diferentes. A mesma arte pode parecer incrível no seu notebook e completamente diferente em outro computador.</p>
+
+    <p>Quando essa arte vai para uma impressora, entra outro universo. A impressora trabalha com tinta, papel, perfil de cor, absorção do material e diversas limitações físicas que simplesmente não existem na tela.</p>
+
+    <p>É aí que começam as surpresas.</p>
+
+    <h2>RGB e CMYK não são a mesma coisa.</h2>
+
+    <p>Grande parte das artes é criada em RGB, que é o padrão utilizado por celulares, televisores e monitores.</p>
+
+    <p>Já a impressão utiliza CMYK.</p>
+
+    <p>Embora ambos representem cores, eles funcionam de maneiras completamente diferentes. Algumas cores extremamente vibrantes que aparecem no monitor simplesmente não existem na impressão.</p>
+
+    <p>Por isso, quando um arquivo RGB chega para produção sem preparação adequada, algumas tonalidades precisam ser convertidas automaticamente. Nem sempre essa conversão acontece da forma que o cliente imagina.</p>
+
+    <h2>Resolução também faz diferença.</h2>
+
+    <p>Outra situação muito comum é utilizar imagens retiradas da internet. Na tela elas parecem ótimas. Mas ao imprimir em tamanho maior começam a aparecer serrilhados, borrões e falta de definição.</p>
+
+    <p>Uma imagem bonita no Instagram não significa que ela possui qualidade suficiente para impressão.</p>
+
+    <h2>Existem detalhes que quase ninguém percebe.</h2>
+
+    <p>Durante a conferência de um arquivo também analisamos diversos outros pontos:</p>
+
+    <ul>
+      <li>Sangria</li>
+      <li>Margens de segurança</li>
+      <li>Fontes convertidas</li>
+      <li>Transparências</li>
+      <li>Sobreposição de objetos</li>
+      <li>Preto enriquecido</li>
+      <li>Perfil de cor</li>
+      <li>Tamanho final</li>
+      <li>Espessura de linhas</li>
+    </ul>
+
+    <p>São detalhes pequenos individualmente, mas que juntos fazem toda a diferença no resultado.</p>
+
+    <h2>A impressão começa muito antes da impressora.</h2>
+
+    <p>É comum imaginar que a qualidade depende apenas do equipamento. Na prática, uma excelente impressora não consegue corrigir um arquivo mal preparado.</p>
+
+    <p>Da mesma forma, um arquivo tecnicamente bem construído costuma gerar excelentes resultados mesmo em processos de produção diferentes.</p>
+
+    <p>É por isso que a etapa de pré-impressão continua sendo uma das partes mais importantes de qualquer projeto gráfico.</p>
+
+    <h2>Nosso trabalho começa antes da primeira folha.</h2>
+
+    <p>Na inPressão, acreditamos que imprimir é apenas a etapa final. O verdadeiro trabalho acontece antes. Cada arquivo passa por uma análise técnica para reduzir riscos, evitar desperdícios e garantir que aquilo que foi criado na tela tenha o melhor resultado possível no papel.</p>
+
+    <div class="article-quote">
+      <p>Uma boa impressão não começa na máquina. Ela começa muito antes dela.</p>
+    </div>
+
+    <div class="article-cta">
+      <p>Precisa garantir fidelidade de cor no seu projeto?</p>
+      <a href="/contato/" class="btn btn-primary">Fale com a inPressão</a>
+    </div>
+
+  </article>
+
+  <div class="article-nav wrap">
+    <a href="/insights/" class="service-link"><span class="arrow" style="transform:rotate(180deg);display:inline-block;">→</span> Voltar para Insights</a>
+    <a href="/insights/pre-impressao/" class="service-link">Próximo artigo <span class="arrow">→</span></a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>inPressão Gráfica — Espírito Santo, Brasil</p>
+    <p>© 2026</p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
