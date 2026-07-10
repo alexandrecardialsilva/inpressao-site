@@ -2665,12 +2665,7 @@ a { color: inherit; text-decoration: none; }
    Hero dark variant — photo background + text/SVG on dark overlay
    Used on /embalagens/ with INP-001
    ========================================================================== */
-.hero-photo {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+/* .hero-photo merged into .hero-cinema */
 
 .hero-photo::before {
   content: '';
@@ -2751,22 +2746,31 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ==========================================================================
-   Hero Cinematográfico — Home v2
+   .hero-cinema — ÚNICO componente Hero (Sprint 2.1 unificação)
+   Todas as páginas usam este componente. Apenas bg-image e altura variam.
    ========================================================================== */
 .hero-cinema {
   position: relative;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
+
+/* Height modifiers */
+.hero-cinema--75 { min-height: 75vh; }
+.hero-cinema--70 { min-height: 70vh; }
+.hero-cinema--65 { min-height: 65vh; }
 
 .hero-cinema-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-  transform: scale(1.04);
+  background-image: inherit;
+  transform: scale(1.03);
   transition: transform 8s ease-out;
 }
 
@@ -2782,37 +2786,37 @@ a { color: inherit; text-decoration: none; }
       to top,
       rgba(17,19,24,0.97) 0%,
       rgba(17,19,24,0.75) 35%,
-      rgba(17,19,24,0.35) 65%,
-      rgba(17,19,24,0.15) 100%
+      rgba(17,19,24,0.30) 65%,
+      rgba(17,19,24,0.10) 100%
     ),
     linear-gradient(
       to right,
-      rgba(17,19,24,0.6) 0%,
-      rgba(17,19,24,0) 60%
+      rgba(17,19,24,0.55) 0%,
+      rgba(17,19,24,0) 55%
     );
 }
 
 .hero-cinema-content {
   position: relative;
   z-index: 2;
-  padding-bottom: clamp(4rem, 9vh, 7rem);
-  padding-top: clamp(8rem, 15vh, 12rem);
+  padding-bottom: clamp(3rem, 7vh, 5.5rem);
+  padding-top: clamp(5rem, 10vh, 7rem);
   width: 100%;
+  transform: translateY(-50px);
 }
 
 .hero-cinema-text {
-  max-width: 780px;
+  max-width: 720px;
 }
 
 .hero-cinema-eyebrow {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--bronze-deep);
   color: #B8862A;
-  margin: 0 0 2rem;
+  margin: 0 0 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -2820,7 +2824,7 @@ a { color: inherit; text-decoration: none; }
 
 .hero-cinema-eyebrow::before {
   content: '';
-  width: 32px;
+  width: 28px;
   height: 1px;
   background: #B8862A;
   flex-shrink: 0;
@@ -2829,12 +2833,12 @@ a { color: inherit; text-decoration: none; }
 .hero-cinema-title {
   font-family: var(--display);
   font-weight: 600;
-  font-size: clamp(4.5rem, 11vw, 9rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  line-height: 0.97;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
-  color: var(--ink);
-  margin: 0 0 2rem;
+  color: #F5F2ED;
+  margin: 0 0 1.25rem;
 }
 
 .hero-cinema-title span {
@@ -2843,11 +2847,11 @@ a { color: inherit; text-decoration: none; }
 
 .hero-cinema-sub {
   font-family: var(--body);
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
   line-height: 1.65;
-  color: rgba(245,242,237,0.65);
-  max-width: 52ch;
-  margin: 0 0 3rem;
+  color: rgba(245,242,237,0.62);
+  max-width: 560px;
+  margin: 0 0 2.5rem;
 }
 
 .hero-cinema-ctas {
@@ -2859,19 +2863,16 @@ a { color: inherit; text-decoration: none; }
 /* Scroll indicator */
 .hero-cinema-scroll {
   position: absolute;
-  bottom: 2rem;
+  bottom: 1.75rem;
   right: var(--gutter);
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
 }
 
 .hero-cinema-scroll span {
+  display: block;
   width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, rgba(184,134,42,0.8), transparent);
+  height: 52px;
+  background: linear-gradient(to bottom, rgba(184,134,42,0.85), transparent);
   animation: scrollline 2s ease-in-out infinite;
 }
 
@@ -2883,8 +2884,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 900px) {
-  .hero-cinema-title {
-    font-size: clamp(2.5rem, 10vw, 4rem);
-  }
+  .hero-cinema-title { font-size: clamp(2rem, 9vw, 3.5rem); }
+  .hero-cinema-scroll { display: none; }
+  .hero-cinema-content { transform: translateY(-20px); }
+}
+
+
   .hero-cinema-scroll { display: none; }
 }
