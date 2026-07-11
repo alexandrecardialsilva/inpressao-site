@@ -2912,3 +2912,18 @@ a { color: inherit; text-decoration: none; }
 .hero-alexandre .hero-cinema-bg{
     background-position: 100% 2%;
 }
+
+/* ==========================================================================
+   Instagram Feed — Behold Widget
+   ========================================================================== */
+.instagram-feed-wrap {
+  width: 100%;
+  min-height: 300px;
+}
+
+.instagram-feed-wrap behold-widget {
+  --behold-background: transparent;
+  --behold-gap: 4px;
+  width: 100%;
+  display: block;
+}
