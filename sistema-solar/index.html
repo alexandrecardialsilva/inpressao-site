@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sistema Solar Interativo para Sala de Aula — V3</title>
+<title>Sistema Solar Interativo para Sala de Aula — V3.1 Mobile</title>
 <meta name="description" content="Material didático interativo para professores explorarem o Sistema Solar e o Universo em computador, TV ou projetor.">
 <style>
 :root{--bg:#030711;--panel:#0a1222;--panel2:#0d172b;--text:#f6f8ff;--muted:#aab5cc;--blue:#4ea1ff;--cyan:#72d9ff;--gold:#ffd36b;--line:rgba(255,255,255,.10);--green:#53dfa2}
@@ -80,12 +80,19 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#748096;font-s
  .hero{padding-top:45px}
  .hero h1{letter-spacing:-1.6px}
  .demo-head{align-items:start;flex-direction:column}
- .demo-stage{aspect-ratio:4/3}
+ .demo-stage{aspect-ratio:auto;height:72vh;min-height:520px;max-height:760px}
+ .demo-shell{border-radius:18px}
+ .demo-bar{height:38px;padding:0 10px}
+ .demo-label{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:78vw}
+ #demo{transform:scale(.92);transform-origin:center center;width:108.7%;height:108.7%;margin-left:-4.35%;margin-top:-4.35%}
+ .timer{left:14px;bottom:14px;font-size:11px;padding:6px 9px}
  .features{grid-template-columns:1fr}
  .usebox{grid-template-columns:1fr}
  .price-card{padding:29px 20px}
  .wrap{width:min(100% - 24px,1160px)}
+ .mobile-tip{display:block}
 }
+.mobile-tip{display:none;color:#b9c9df;font-size:13px;margin:10px 0 0}
 </style>
 </head>
 <body>
@@ -110,13 +117,13 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#748096;font-s
 <section class="demo-section wrap" id="demonstracao">
   <div class="demo-head">
     <div><div class="live"><span class="dot"></span> DEMONSTRAÇÃO REAL</div><h2>Veja o material funcionando.</h2><p>Não é vídeo nem GIF. Mexa no Sistema Solar: arraste, aproxime e experimente o próprio material.</p></div>
-    <div style="color:#7f8ba3;font-size:13px">15 segundos</div>
+    <div style="color:#7f8ba3;font-size:13px">15 segundos</div><div class="mobile-tip">No celular: arraste com um dedo e use dois dedos para aproximar.</div>
   </div>
   <div class="demo-shell">
     <div class="demo-bar"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="demo-label">Sistema Solar — degustação interativa • nomes e rastros ativados</span></div>
     <div class="demo-stage">
       <iframe id="demo" title="Demonstração do Sistema Solar" sandbox="allow-scripts"></iframe>
-      <div style="position:absolute;right:18px;bottom:16px;padding:7px 10px;border-radius:999px;background:rgba(3,7,17,.74);border:1px solid rgba(255,255,255,.13);font-size:12px;font-weight:800;backdrop-filter:blur(8px);pointer-events:none">🖱️ Arraste • zoom • explore</div><div class="timer" id="timer">15 s restantes</div>
+      <div class="timer" id="timer">15 s restantes</div>
       <div class="overlay" id="overlay">
         <div class="overlay-card">
           <h3>Isso foi só o começo.</h3>
@@ -203,6 +210,33 @@ function ativarDegustacao(){
     };
     clickByText(/nomes?|labels?/i);
     clickByText(/rastro|trilha|trajet[oó]ria|orbit/i);
+
+    if(window.matchMedia("(max-width:780px)").matches){
+      const style=d.createElement("style");
+      style.textContent=`
+        body{overflow:hidden!important}
+        button{font-size:12px!important;padding:6px 9px!important}
+        h1,h2{font-size:clamp(20px,6vw,30px)!important;line-height:1.05!important}
+        p{font-size:12px!important;line-height:1.35!important}
+      `;
+      d.head.appendChild(style);
+
+      const hideByText=(rx)=>{
+        [...d.querySelectorAll("button,div,section,aside,p,h1,h2,h3,span")].forEach(el=>{
+          const txt=(el.textContent||"").trim();
+          if(txt && rx.test(txt) && txt.length<120){
+            el.style.display="none";
+          }
+        });
+      };
+      hideByText(/sobre o sol/i);
+      hideByText(/e se o sol sumisse/i);
+      hideByText(/voyagers?/i);
+      hideByText(/velocidade/i);
+      hideByText(/reset/i);
+      hideByText(/sistema solar em movimento/i);
+      hideByText(/arraste para girar|pinça no celular|roda do mouse/i);
+    }
   }catch(e){}
 }
 demo.addEventListener("load",()=>setTimeout(ativarDegustacao,250));
